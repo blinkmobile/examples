@@ -1,4 +1,4 @@
-examples
-========
+# Blink Platform examples
 
-snippets, templates and examples for use with the Blink Platform
+examples for use with the Blink Platform
+
