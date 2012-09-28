@@ -1,0 +1,66 @@
+<!-- add to Step 4 Header for enhanced pagination -->
+<div class="customPagination" style="text-align: center; display: none;">
+  <label>go to:
+    <select>
+      <!-- options are built automatically based on Form Headings -->
+    </select>
+  </label>
+</div>
+<script>
+// do everything in a closure, creates our own safe little world
+setTimeout(function() {
+
+  // exit early if we don't have jQuery (shouldn't ever happen)
+  if (!$) { return; }
+
+  // find our target box element for convenient future use
+  var $box = $('#answerBox');
+
+  // find our BlinkForm pages
+  var $pages = BlinkForms.currentFormObject.$form;
+
+  // clone the above DIV (messing with the original is bad)
+  var $divTop = $('div.customPagination').clone();
+  // make the DIV-clone to be visible
+  $divTop.show();
+  // add the DIV-clone to the top of the box
+  $box.prepend($divTop);
+
+  // install the OPTIONS based on the Blink Form
+  $pages.each(function(index, element) {
+    var $page = $(element),
+        $heading,
+        $option = $('<option></option>');
+
+    $heading = $page.find('tr[data-field-type=heading]:first');
+    $heading = $heading.find('h1, h2, h3, h4, h5, h6').first();
+    $option.attr('value', index + 1);
+    $option.text($heading.text() || index + 1);
+
+    $divTop.find('select').append($option);
+  });
+
+  // make another copy of the DIV
+  var $divBot = $divTop.clone();
+  // add the copy to the bottom of the box
+  $box.append($divBot);
+
+  // define what happens when the SELECT changes value
+  $divTop.add($divBot).on('change', 'select', function() {
+    // find the SELECT element
+    var $select = $(this),
+        // extract the "value" from the selected OPTION as a number
+        value = parseInt($select.val(), 10);
+
+    $pages.hide();
+    $pages.eq(value - 1).show();
+
+    // scroll back up to the top of the page
+    $(window).scrollTop(0);
+
+    // make both SELECTs look the same
+    $divTop.add($divBot).find('select').val($select.val());
+  });
+
+}, 497);
+</script>
