@@ -17,20 +17,19 @@ var formObject = BlinkForms.currentFormObject;
 var subFormElement = formObject.getElement('Passenger');
 
 /**
- * We'll add 2 (empty, only choice) new Passengers to our Car here ...
+ * We'll add a (empty, only choice) new Passenger to our Car here ...
  */
 
 subFormElement.add();
-subFormElement.add();
 
 /**
- * Cars in our example only have 2 seats, so if we get rid of the extra Passengers ...
- * NOTE: add() doesn't already finish right away, so we need to allow enough time to pass.
+ * Cars in our example only have 1 Passenger seat, so we get rid of the extra Passenger ...
+ * NOTE: add() doesn't always finish right away, so we need to allow enough time to pass.
  */
 
 setTimeout(function() {
 
-  while (subFormElement.size() > 2) {
+  if (subFormElement.size() > 1) {
     subFormElement.remove(subFormElement.size() - 1);
   }
 
