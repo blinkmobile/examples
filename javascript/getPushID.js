@@ -17,7 +17,7 @@ setTimeout(function(){
              // make AJAX request
              $.ajax({
                  type: "POST",
-                 url: '/_api/interaction/run/youranswerspace/SAVEDEVICETOKEN',
+                 url: '/_api/interaction/run/blinkexpress/SAVEDEVICETOKEN',
                  data: {device_token:id}
              }).done(function( msg ) {
                 //navigator.notification.alert( "Result: " + msg );
@@ -31,13 +31,30 @@ setTimeout(function(){
                             
        });
     
+    
+    /*
+    push.getPushID(function (id) {
+                            if (id) {
+                            navigator.notification.alert("***** Got push ID: " + id)
+                            }
+                            });
+             
+    push.getTags(function (id) {
+                        if (id) {
+                            navigator.notification.alert("***** Got push Tags: " + JSON.stringify(id))
+                        }
+                   });
+     push.getAlias(function (id) {
+                  if (id) {
+                  navigator.notification.alert("***** Got push Alias: " + JSON.stringify(id))
+                  }
+                  });
+     */
    
    }
           
 
 }, 5000);
-
-
 
 
     /*
