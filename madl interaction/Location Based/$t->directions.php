@@ -40,7 +40,7 @@
 </arg>
 
 //--------------------------------------------------------------------
-// Place this code in the Input Prompt of your madl interaction.
+// Place this code in the madl code of your madl interaction.
 
 $mapOptions = Array(
 'origin' => $args[0],
