@@ -1,4 +1,4 @@
-// With drawBasicMap:
+// mADL interaction With drawBasicMap:
 // first set up the map variables to use
 $mapOptions = array(
 "longitude" => "151.316274", // location longitude to centre map
