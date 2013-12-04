@@ -42,3 +42,11 @@ $options = array(
 //function call
 //the argument is optional
 $pdf_content = $t->createPDF($options);
+
+$from ="bmp@blinkmobile.com.au";
+$to = "you@youremail.com.au";
+$subject = "After";
+$body = "see attachments";
+
+$t->AddStringAttachment($pdf_content, "MyCustomPdf.pdf", "base64", "application/pdf");
+$t->email($to, $subject, $body, $from);
