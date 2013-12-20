@@ -18,7 +18,7 @@ console.log('Checking to support annotations');
 		 	 	currentConfig.cameraOptions = JSON.stringify(_.extend(JSON.parse(currentConfig.cameraOptions), {"shouldAnnotate":true}));
      	 	console.log('cameraOptions extended to support annotations');
     	} else {
-     	 	currentConfig.cameraOptions = {"shouldAnnotate":true}
+     	 	currentConfig.cameraOptions = '{"shouldAnnotate":true}';
       	console.log('cameraOptions created to support annotations');
     	}
   	}
