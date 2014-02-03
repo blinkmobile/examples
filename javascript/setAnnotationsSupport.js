@@ -1,6 +1,6 @@
 /**
  * SET CAMERA / IMAGE ANNOTATIONS FOR BLINK FORMS
- * Modified Ray Pearce 5/12/2013  
+ * Modified Ray Pearce 3/2/2014 
  * iOS devices Only at this time
  * Will work with Blink Native Client is added in 2.2.1 or  (Master App 1.12)
  * 
@@ -12,16 +12,23 @@
  */
 
 
-console.log('Checking to support annotations');
- if (_Blink.isBlinkGap === true) {
-    	if (currentConfig.cameraOptions) {
-		 	 	currentConfig.cameraOptions = JSON.stringify(_.extend(JSON.parse(currentConfig.cameraOptions), {"shouldAnnotate":true}));
-     	 	console.log('cameraOptions extended to support annotations');
-    	} else {
-     	 	currentConfig.cameraOptions = '{"shouldAnnotate":true}';
-      	console.log('cameraOptions created to support annotations');
-    	}
-  	}
+var old_updateCurrentConfig = updateCurrentConfig;
+
+updateCurrentConfig = function() {
+//call the existing updateCurrentConfig
+old_updateCurrentConfig();
+
+console.log('enabling image annotations'); 
+//enable image annotation
+if (currentConfig.cameraOptions) {
+currentConfig.cameraOptions = JSON.stringify(_.extend(JSON.parse(currentConfig.cameraOptions), {"shouldAnnotate":true}));
+console.log('cameraOptions extended to support annotations');
+} else {
+currentConfig.cameraOptions = '{"shouldAnnotate":true}';
+console.log('cameraOptions created to support annotations');
+}
+}
+
   
 
 
