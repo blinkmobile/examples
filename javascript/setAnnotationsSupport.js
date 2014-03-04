@@ -33,7 +33,12 @@ console.log('cameraOptions created to support annotations');
 
 
 
- * with the 2013M31 RC release, it should be possible to use these by programatically changing the camera plugin options on form load or on form field button press. The following code will add the shouldAnnotate option to the answerSpace configuration: * to allow annotations. 
+ /* 
+  * with the 2013M31 RC release, it should be possible to use these by programatically changing
+  * the camera plugin options on form load or on form field button press. The following code will
+  * add the shouldAnnotate option to the answerSpace configuration: * to allow annotations. 
  */
  
  currentConfig.cameraOptions = JSON.stringify(_.extend(JSON.parse(currentConfig.cameraOptions), {"shouldAnnotate":true}))
+ 
+ 
