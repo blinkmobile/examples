@@ -55,3 +55,27 @@ if (isset($_GET['logout'])) {
 if (empty($account)) {
  // not logged in, so asking for user  for login details
   $html .= '<center><form action="?" method="POST" style="display: inline-block; width: auto; text-align: right; margin: 2em auto;">';
+  $html .= '<label>Username: <input type="text" name="username" required /></label><br />';
+  $html .= '<label>Password: <input type="password" name="password" required /></label>';
+  $html .= '<p><input type="submit" name="submit" value="login" /></p>';
+  $html .= '</form></center>';
+} else {
+  // logged in, so showing user status and prompting for logout
+  if (isset($account['name'], $account['username']) && $account['username'] !== $account['name']) {
+    $name = $account['name'] . ' (' . $account['username'] . ')';
+  } else {
+    $name = $account['name'];
+  }
+  $html .= '<center>';
+  $html .= '<p>You are currently logged in as ' . $name . '.</p>';
+  $html .= '<form action="?" method="GET" style="display: inline-block; width: auto; margin: 2em auto;">';
+  $html .= '<p><input type="submit" name="logout" value="log out" /></p>';
+  $html .= '</form>';
+  $html .= '</center>';
+}
+
+// show messages
+$html .= '<center><p style="color: #a00;">' . $error . '</p>';
+$html .= '<p style="color: #0a0;">' . $status . '</p></center>';
+
+return $html;
