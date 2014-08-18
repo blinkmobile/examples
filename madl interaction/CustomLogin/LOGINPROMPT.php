@@ -36,6 +36,10 @@ if (!empty($_POST)) {
         'groups' => $userGroups[$username] // array of Interaction Group IDs for access control
       );
       $t->setSessionValue('account', $account);
+      if(method_exists($t, "triggerEvent")) {
+		  //this will restart the session
+	      $t->triggerEvent("LOGGEDIN");
+      }
     } else { // invalid login, scrubbing session
  
       $error = 'invalid username and/or password';
@@ -50,6 +54,10 @@ if (isset($_GET['logout'])) {
   $t->setSessionValue('account', null);
   $account = null;  
   $status = 'successfully logged out';
+	if(method_exists($t, "triggerEvent")) {
+		//this will destroy existing session
+	    $t->triggerEvent("LOGGEDOUT");
+    }
 }
 
 if (empty($account)) {
