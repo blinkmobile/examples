@@ -1,4 +1,4 @@
-//Working example - copy and past the following into and interaction and change the "To" email address 
+//Working example - copy and past the following into a mADL interaction. Remember to change the "To" email address 
 
 $image_content = "iVBORw0KGgoAAAANSUhEUgAAAZAAAACWCAMAAADHTy5XAAAABGdBTUEAALGPC/xhBQAAAAFzUkdC
 AK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAmRQTFRF
