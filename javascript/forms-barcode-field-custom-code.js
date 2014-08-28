@@ -1,5 +1,5 @@
 /*
- * Step 3 custom code for reading Barcodes into a form field (native apps only).
+ * Custom code for reading Barcodes into a form field (native apps only).
  * To be added as manual calculation code for Calculation fields.
  *
  * NB: Javascript line comments should *NOT* be used in custom code added to forms.
