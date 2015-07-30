@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 }
 
 // check to see if we need to log out
-if (isset($_GET['logout'])) {
+if (isset($_GET['logout']) || (isset($_GET['args']) && is_array($_GET['args']) && isset($_GET['args']['logout']))) {
   $t->setSessionValue('account', null);
   $account = null;  
   $status = 'successfully logged out';
